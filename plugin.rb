@@ -6,9 +6,14 @@
 # authors: https://github.com/fokx
 # url: https://github.com/fokx/discourse-cjk-formatter
 # required_version: 2.7.0
+if RUBY_VERSION.start_with?("3.3")
+  gem "rb_sys", "0.9.98"
+  gem "autocorrect-rb", "2.11.1"
+elsif RUBY_VERSION.start_with?("3.4")
+  gem "rb_sys", "0.9.105"
+  gem "autocorrect-rb", "2.13.1"
+end
 
-gem "rb_sys", "0.9.105"
-gem "autocorrect-rb", "2.13.1"
 #gem "rake-compiler-dock" "1.9.1"
 
 enabled_site_setting :discourse_cjk_formatter_enabled
